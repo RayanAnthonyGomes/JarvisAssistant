@@ -111,3 +111,29 @@ if __name__ == "__main__":
     while True:
         user_input = input("Enter your question: ") #prompt user for input
         print(ChatBot(user_input)) #print the chatbots response
+
+#END OF CODE
+
+# 0. Explanation
+# 1. All the required libraries are imported.
+# 2. The environment variables are loaded from the .env file.
+# 3. The function RealTimeInformation is defined to get the current date and time.
+# 4. The function AnswerModifier is defined to format the chatbot's response.
+# 5. The main ChatBot function is defined to interact with the chatbot and return its response.
+# 6. The chat history is loaded from the ChatLog.json file.
+# 7. The user's query is appended to the chat history.
+# 8. The chat history is sent to the Groq API to get the chatbot's response.
+# 9. The chatbot's response is processed and appended to the chat history.
+# 10. The chat history is saved to the ChatLog.json file.
+# 11. The chatbot's response is returned to the user.
+# 12. If an error occurs, the function is recursively called.
+# 13. The main program entry point continuously prompts the user for input and prints the chatbot's response.
+# 14. The code is executed when the script is run.
+# 15. The user is prompted for input.
+# 16. The chatbot's response is printed.
+# 17. The user is prompted for input again.
+# 18. The chatbot's response is printed again.
+# 19. The process continues until the program is terminated.
+
+
+
