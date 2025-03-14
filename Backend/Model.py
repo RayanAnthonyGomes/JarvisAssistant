@@ -121,3 +121,15 @@ if __name__ == "__main__":
         print(FirstLayerDMM(input(">>>")))
 
 
+# 0. Explanation
+# 1. All the required libraries are imported.
+# 2. The environment variables are loaded from the .env file.
+# 3. The Cohere API key is retrieved from the environment variables.
+# 4. The Cohere client is created using the API key.
+# 5. A list of recognized function keywords for task categorization is defined. If the user input doesnt contain any of this keywords, the model will skip it.iter
+# 6. An empty list is initialized to store the user messages.
+# 7. The prompts to guide the AI model to categorize user input queries are defined. DECISION MAKING
+# 8. A chat history with predefined user-chatbot interactions for context is defined.
+# 9. Queries --> Responses
+# 10. The main function for decision making on queries is defined.
+# 11. After that we Will use conditional statements to filter out the valid tasks from the response.
