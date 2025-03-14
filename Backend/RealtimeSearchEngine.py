@@ -1,5 +1,3 @@
-#Google Search koira data dibo amar hogay
-
 from googlesearch import search
 from groq import Groq
 from json import load,dump
@@ -38,6 +36,7 @@ def GoogleSearch(query):
     for i in results:
         Answer += f"Title: {i.title}\nDescription: {i.description}\n\n"
     Answer += "[end]"
+    
     return Answer
 
 #func to clean up empty lines
@@ -49,7 +48,7 @@ def AnswerModifier(Answer):
 
 #predefined funcs for chatbot 
 SystemChatBot = [
-    {"role": "system", "content": "system"},
+    {"role": "system", "content": System},
     {"role": "user", "content": "Hi"},
     {"role": "assistant", "content": "Hello, How can I help you?" }
 ]
@@ -63,15 +62,15 @@ def Information():
     date = current_date_time.strftime("%d")
     month = current_date_time.strftime("%B")
     year = current_date_time.strftime("%Y")
-    hour = current_date_time.strftime("%I")
+    hour = current_date_time.strftime("%H")
     minute = current_date_time.strftime("%M")
     second = current_date_time.strftime("%S")
-    data += f"Use this real-time information if needed"
+    data += f"Use this Real-Time Information if needed"
     data += f"Day : {day}\n"
     data += f"Date : {date}\n"
     data += f"Month : {month}\n"
     data += f"Year : {year}\n"
-    data += f"Time : {hour} hours :{minute} minutes :{second} seconds.\n"
+    data += f"Time : {hour} hours, {minute} minutes, {second} seconds.\n"
     return data
 
 #function to handle real time search and respons gen
@@ -105,12 +104,12 @@ def RealtimeSearchEngine(prompt):
         if chunk.choices[0].delta.content:
             Answer += chunk.choices[0].delta.content
     #cleanup
-    Answer = Answer.strip().replace("</s>","")
+    Answer = Answer.strip().replace("</s>", "")
     messages.append({"role": "assistant","content": Answer})
 
     #save chat log
     with open(r"Data\ChatLog.json", "w") as f:
-        dump(messages, f,indent=4)
+        dump(messages, f, indent=4)
     #remove most recent system chatbot message
     SystemChatBot.pop()
     return AnswerModifier(Answer=Answer)
